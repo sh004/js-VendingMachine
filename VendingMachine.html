@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>自動販売機</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="frameA">
+	<div id="frameB">
+		<div id="frameB-1">
+			<!-- 製品ディスプレイ -->
+			<div class="display">
+				<img src="img/drink/coca_cola.png" class="display_first" alt="コカ･コーラ">
+				<img src="img/drink/aquarius.png" alt="アクエリアス">
+				<img src="img/drink/irohasu.png" alt="い･ろ･は･す">
+				<img src="img/drink/sprite.png" alt="スプライト">
+				<img src="img/drink/fanta.png" alt="ファンタ グレープ">
+			</div>
+			<!-- バー -->
+			<div class="bar">
+				<div class="bar-top">
+					<!-- 価格 -->
+					<div class="price">\160</div>
+					<div class="price">\160</div>
+					<div class="price">\110</div>
+					<div class="price">\160</div>
+					<div class="price">\160</div>
+				</div>
+				<div class="bar-bottom">
+					<!-- ボタン -->
+					<button type=button onClick="buttonEnter(1)" class="six"></button>
+					<button type=button onClick="buttonEnter(2)" class="six"></button>
+					<button type=button onClick="buttonEnter(3)" class="one"></button>
+					<button type=button onClick="buttonEnter(4)" class="six"></button>
+					<button type=button onClick="buttonEnter(5)" class="six"></button>
+				</div>
+			</div>
+		</div>
+		<div id="frameB-2">
+			<!-- 製品ディスプレイ -->
+			<div class="display">
+				<img src="img/drink/coffe.png" class="display_first" alt="コーヒー">
+				<img src="img/drink/coffe.png" alt="コーヒー">
+				<img src="img/drink/caffe_latte.png" alt="カフェラテ">
+				<img src="img/drink/sokenbicha.png" alt="爽健美茶">
+				<img src="img/drink/sokenbicha.png" alt="爽健美茶">
+			</div>
+			<!-- ディスプレイバー -->
+			<div class="bar">
+				<div class="bar-top">
+					<!-- 価格 -->
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+				</div>
+				<div class="bar-bottom">
+					<!-- ボタン -->
+					<button type=button onClick="buttonEnter(6)" class="three"></button>
+					<button type=button onClick="buttonEnter(6)" class="three"></button>
+					<button type=button onClick="buttonEnter(7)" class="three"></button>
+					<button type=button onClick="buttonEnter(8)" class="three"></button>
+					<button type=button onClick="buttonEnter(8)" class="three"></button>
+				</div>
+			</div>
+		</div>
+		<div id="frameB-3">
+			<!-- 製品ディスプレイ -->
+			<div class="display">
+				<img src="img/drink/corn_potage.png" class="display_first" alt="コーンポタージュ">
+				<img src="img/drink/oshiruko.png" alt="おしるこ">
+				<img src="img/drink/hot_lemon.png" alt="ホットレモン">
+				<img src="img/drink/cocoa.png" alt="贅沢ミルクココア">
+				<img src="img/drink/kochakaden.png" alt="紅茶花伝">
+			</div>
+			<!-- ディスプレイバー -->
+			<div class="bar">
+				<div class="bar-top">
+					<!-- 価格 -->
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+					<div class="price">\130</div>
+				</div>
+				<div class="bar-bottom">
+					<!-- ボタン -->
+					<button type=button onClick="buttonEnter(9)" class="three"></button>
+					<button type=button onClick="buttonEnter(10)" class="three"></button>
+					<button type=button onClick="buttonEnter(11)" class="three"></button>
+					<button type=button onClick="buttonEnter(12)" class="three"></button>
+					<button type=button onClick="buttonEnter(13)" class="three"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="frameC">
+		<!-- 広告 -->
+		<div id="frameC-1">
+			<img src="img/kist.png" alt="金沢科学技術専門学校">
+		</div>
+		
+		<div id="frameC-2">
+			<!-- 金額表示 -->
+			<div class="cash">
+				<p id="en">\</p>
+				<p id="num">0000</p>
+			</div>
+			<!-- 返却レバー -->
+			<div class="lever" onClick="hasPulled()">
+				<img src="img/lever.png" alt="">
+			</div>
+			<!-- 硬貨投入口 -->
+			<div class="coin" onClick="a()">
+				<img src="img/coin.png" alt="">
+			</div>
+			<!-- 紙幣挿入/返却口 -->
+			<div class="paper" onClick="returnPaper()">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div id="frameD">
+		<!-- 商品取出口 -->
+		<div id="frameD-1" onClick="outputItem()">
+			
+		</div>
+		<!-- 硬貨返却口 -->
+		<div id="frameD-2" onClick="returnCoin()">
+				
+		</div>
+	</div>
+	
+	<div id="frameA-1">
+	</div>
+</div>
+
+<div id="frameE">
+	<div class="screen"></div>
+
+	<div id="wallet">
+		<img src="img/money/sen.png" class="money sen" alt="1000円札"><br>
+		<img src="img/money/ju.png" class="money ju" alt="10円玉">
+		<img src="img/money/goju.png" class="money goju" alt="50円玉">
+		<img src="img/money/hyaku.png" class="money hyaku" alt="100円玉">
+		<img src="img/money/gohyaku.png" class="money gohyaku" alt="500円玉">
+	</div>
+
+	<form name="text">
+		<textarea name="backlog" rows="4" cols="40" id="backlog"></textarea>
+	</form>
+</div>
+
+
+<script type="text/javascript" src="javascript.js"></script>
+</body>
+</html>

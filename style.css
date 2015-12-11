@@ -1,0 +1,288 @@
+body {
+	font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+	color: #3f3f3f;
+	height: 750px;
+	width: 935px;
+	margin: 10px auto;
+	overflow: hidden;
+}
+
+/* 骨組み */
+#frameA {
+	height: 700px;
+	width: 450px;
+	padding: 20px;
+	border: solid 1px #ab3b3a;
+	border-radius: 5px;
+	background: #cb4042;
+	float: left;
+}
+#frameB {
+	height: 45%;
+	width: 98%;
+	margin: 0 auto;
+	border: solid 1px #91989f;
+	border-radius: 10px;
+	background: #fffffb;
+}
+#frameB-1 {
+	height: 40%;
+	position: relative;
+}
+#frameB-2 {
+	height: 30%;
+	position: relative;
+}
+#frameB-3 {
+	height: 30%;
+	position: relative;
+}
+#frameC {
+	height: 25%;
+	width: 98%;
+	margin: 4% auto 0;
+}
+#frameC-1 {
+	height: 100%;
+	width: 65%;
+	text-align: center;
+	border: solid 1px #91989f;
+	border-radius: 10px;
+	background: #fffffb;
+	float: left;
+}
+#frameC-2 {
+	height: 75%;
+	width: 30%;
+	border: solid 1px #52433d;
+	border-radius: 10px 10px 100px 15px / 10px 10px 80px 15px;
+	background: #373c38;
+	float: right;
+}
+#frameD {
+	height: 17%;
+	width: 98%;
+	margin: 10% auto 0;
+}
+#frameD-1 {
+	height: 65%;
+	width: 85%;
+	border: solid 1px #656765;
+	border-radius: 5px;
+	background: #828282;
+	float: left;
+}
+#frameD-2 {
+	height: 35%;
+	width: 10%;
+	margin-bottom: 2%;
+	border: solid 1px #656765;
+	border-radius: 5px;
+	background: #828282;
+	float: right;
+}
+#frameA-1 {
+	height: 2.5%;
+	width: 65%;
+	margin: 0 auto;
+	border: solid 1px #52433d;
+	border-radius: 20px 20px 0 0;
+	background: #373c38;
+}
+#frameE {
+	height: 700px;
+	width: 400px;
+	text-align: center;
+	padding: 20px;
+	float: left;
+}
+
+/* 製品ディスプレイ */
+#frameB .display img {
+	height: 90px;
+}
+#frameB .display .display_first {
+	margin-left: 30px;
+}
+
+/* バー */
+#frameB .bar{
+	height: 30px;
+	width: 95%;
+	position: absolute;
+	bottom: 5%;
+	left: 2.5%;
+}
+#frameB .bar-top {
+	height: 45%;
+	border: solid 1px #91989f;
+	border-bottom: none;
+	border-radius: 5px 5px 0 0;
+}
+#frameB .bar-bottom {
+	height: 55%;
+	border: solid 1px #bdc0ba;
+	border-radius: 0 0 5px 5px;
+	background: #fcfaf2;
+}
+#frameB-1 .bar-top {
+	background: #005caf;
+}
+#frameB-2 .bar-top,
+#frameB-3 .bar-top {
+	background: #c73e3a;
+}
+
+/* 価格 */
+#frameB .price {
+	height: 70%;
+	width: 8%;
+	color: #fff;
+	font-size: 13px;
+	margin-top: -0.6%;
+	margin-left: 10%;
+	float: left;
+}
+
+/* ボタン */
+#frameB button {
+	height: 80%;
+	width: 8.5%;
+	margin-top: 0.4%;
+	margin-left: 9.7%;
+	border: solid 1px #91989f;
+	border-radius: 10px;
+	background: #828282;
+	font-size: 20px;
+	float: left;
+	outline: none;
+}
+#frameB button:hover {
+	opacity: 0.8;
+}
+
+/* 広告 */
+#frameC-1 img {
+	width: 95%;
+	margin-top: 25%;
+}
+
+/* 金額表示 */
+#frameC-2 .cash {
+	width: 40%;
+	height: 20%;
+	margin: 10% 4% 10% 4%;
+	border: solid 1px #0c0c0c;
+	border-radius: 3px;
+	background: #080808;
+	float: left;
+}
+#frameC-2 .cash #en {
+	color: #1c1c1c;
+	margin: 0;
+	float: left;
+}
+#frameC-2 .cash #num {
+	color: #1c1c1c;
+	margin: 0;
+	text-align: right;
+}
+
+/* 返却レバー */
+#frameC-2 .lever {
+	width: 20%;
+	height: 20%;
+	margin-top: 10%;
+	border: solid 1px #656765;
+	border-radius: 100px;
+	background: #91989f;
+	float: left;
+}
+#frameC-2 .lever:hover {
+	opacity: 0.8;
+}
+#frameC-2 .lever img {
+	display: block;
+	margin: 1px auto 0;
+}
+
+/* 硬貨投入口 */
+#frameC-2 .coin {
+	width: 20%;
+	height: 20%;
+	margin: 10% 0 0 3%;
+	border: solid 1px #656765;
+	border-radius: 100px;
+	background: #91989f;
+	float: left;
+}
+#frameC-2 .coin:hover {
+	opacity: 0.8;
+}
+#frameC-2 .coin img {
+	display: block;
+	margin: 1px auto 0;
+}
+
+/* 紙幣挿入/返却口 */
+#frameC-2 .paper {
+	width: 40%;
+	height: 40%;
+	margin-left: 4%;
+	border: solid 1px #656765;
+	border-radius: 3px;
+	background: #828282;
+	clear: both;
+}
+#frameC-2 .paper:hover {
+	opacity: 0.8;
+}
+
+/* 商品取出口 */
+#frameD-1:hover {
+	opacity: 0.8;
+}
+
+/* 硬貨返却口 */
+#frameD-2:hover {
+	opacity: 0.8;
+}
+
+/* 表示 */
+#frameE .screen {
+	height: 320px;
+	width: 400px;
+	margin-bottom: 20px;
+	border: solid 1px #004caf;
+	border-radius: 10px;
+}
+
+/* 財布 */
+#frameE #wallet {
+	height: 180px;
+	width: 400px;
+	margin-bottom: 40px;
+	padding-top: 20px;
+	border: solid 1px #efbb24;
+	border-radius: 10px;
+	background: #fcfaf2;
+}
+#frameE .money {
+  cursor: move;
+}
+#frameE .sen {
+	height: 50%;
+}
+#frameE .gohyaku,
+#frameE .hyaku,
+#frameE .goju,
+#frameE .ju{
+	height: 40%;
+}
+
+/* テキスト */
+#frameE #backlog {
+	height: 100px;
+	width: 390px;
+	border-radius: 5px;
+}
