@@ -268,16 +268,31 @@ body {
 	background: #fcfaf2;
 }
 #frameE .money {
-  cursor: move;
+	position: absolute;
+	cursor: move;
 }
-#frameE .sen {
-	height: 50%;
+#frameE #sen {
+	right: 15%;
+	height: 90px;
 }
-#frameE .gohyaku,
-#frameE .hyaku,
-#frameE .goju,
-#frameE .ju{
-	height: 40%;
+#frameE #gohyaku,
+#frameE #hyaku,
+#frameE #goju,
+#frameE #ju {
+	top: 59%;
+	height: 70px;
+}
+#frameE #gohyaku {
+	right: 36%;
+}
+#frameE #hyaku {
+	right: 26%;
+}
+#frameE #goju {
+	right: 17%;
+}
+#frameE #ju {
+	right: 8%;
 }
 
 /* テキスト */

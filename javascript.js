@@ -1,3 +1,9 @@
+/*　メモ
+	・お金の投入ができない
+	・ボタンが光らない
+	・商品を一度に複数購入できない	←配列で解決？
+*/
+
 var pay = 0;									//支払い金額合計
 var num = document.getElementById("num");		//金額表示：金額
 var en = document.getElementById("en");			//金額表示：円マーク
@@ -55,10 +61,7 @@ var cols = document.querySelectorAll('#wallet .money');
 	col.addEventListener('dragend', handleDragEnd, false);
 });
 
-
-
-
-/*---------- ここから仮 ----------*/
+/*--------------- ここから仮 ---------------*/
 //金額表示
 pay = 1200;
 if (pay > 0) {
@@ -75,7 +78,7 @@ if (pay >= 110 && pay < 130) {
 
 } else {
 }
-/*---------- ここまで仮 ----------*/
+/*--------------- ここまで仮 ---------------*/
 
 //----- 商品購入処理 -----//
 //商品ボタン押下
