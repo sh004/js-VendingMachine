@@ -248,21 +248,25 @@ body {
 	opacity: 0.8;
 }
 
-/* 表示 */
-#frameE .screen {
-	height: 320px;
-	width: 400px;
-	margin-bottom: 20px;
+/* テキスト */
+#frameE #backlog {
+	height: 280px;
+	width: 380px;
+	padding: 10px;
+	font-size: 15px;
+	line-height: 25px;
+	outline: none;
 	border: solid 1px #004caf;
 	border-radius: 10px;
+	background: #eff4fa;
 }
 
 /* 財布 */
 #frameE #wallet {
-	height: 180px;
+	height: 230px;
 	width: 400px;
 	position: relative;
-	margin-bottom: 40px;
+	margin-top: 20px;
 	padding-top: 20px;
 	border: solid 1px #efbb24;
 	border-radius: 10px;
@@ -273,6 +277,7 @@ body {
 	cursor: move;
 }
 #frameE #sen {
+	top: 13%;
 	right: 25%;
 	height: 90px;
 }
@@ -296,9 +301,3 @@ body {
 	right: 10%;
 }
 
-/* テキスト */
-#frameE #backlog {
-	height: 100px;
-	width: 390px;
-	border-radius: 5px;
-}

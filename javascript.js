@@ -1,8 +1,3 @@
-/*　メモ
-	・ボタンが光らない
-*/
-
-var a = 0;
 var pay = 0;									//支払い金額合計
 var num = document.getElementById("num");		//金額表示：金額
 var en = document.getElementById("en");			//金額表示：円マーク
@@ -16,12 +11,12 @@ var itemName = [];		//商品名
 var itemPrice = 0;		//商品の値段
 
 var change = 0;							//おつり総計
-var paper = 0, coin = 0;						//おつり紙幣, おつり硬貨
+var paper = 0, coin = 0;				//おつり紙幣, おつり硬貨
 var getPaper = new Boolean(false);		//判定：紙幣返却用
 var getCoin = new Boolean(false);		//判定：硬貨返却用
 
 
-//----- お金投入,挿入処理 -----//
+//--------------- お金投入,挿入処理 ---------------//
 $(function(){
 	$(".money").draggable({
 		revert: true
@@ -30,31 +25,47 @@ $(function(){
 		accept : ".money",
 		drop : function(event , ui){
 					var dragId = ui.draggable.attr("id");
-
 					
 					if ($(this).find(".drop" + dragId).length == 0) {
+						var a = 0, b = 0;
 						switch (dragId){
-							case 'sen':		pay += 1000;
+							case 'sen':		a = 1000;
 											break;
-							case 'ju':		pay += 10;
+							case 'ju':		a = 10;
 											break;
-							case 'goju':	pay += 50;
+							case 'goju':	a = 50;
 											break;
-							case 'hyaku':	pay += 100;
+							case 'hyaku':	a = 100;
 											break;
-							case 'gohyaku':	pay += 500;
+							case 'gohyaku':	a = 500;
 											break;
 						}
-						
-						num.innerText = pay;
-						num.style.color = "#ab3b3a";
-						en.style.color = "#ab3b3a";
+						b = pay + a;
+						if (b > 4200) {
+							document.text.backlog.value += "上限に達しました。\n";
+							goBottom();
+							
+							change += a;
+							if (a == 1000) {
+								paper += a;
+								getPaper = true;
+							} else {
+								coin += a;
+								getCoin = true;
+							}
+							change = 0;
+						} else {
+							pay += a;
+							num.innerText = pay;
+							num.style.color = "#ab3b3a";
+							en.style.color = "#ab3b3a";
+						}
 					}
 				}
 	});
 });
 
-//----- 商品購入処理 -----//
+//--------------- 商品購入処理 ---------------//
 //商品ボタン押下
 function buttonEnter(btnNo) {
 	switch(btnNo) {
@@ -120,6 +131,13 @@ function buttonEnter(btnNo) {
 	} else {
 		pay = pay - itemPrice;
 		num.innerText = pay;
+		
+		if (num.innerText == "0") {
+			pay = 0;
+			num.innerText = "0000";
+			num.style.color = "#1c1c1c";
+			en.style.color = "#1c1c1c";
+		}
 	}
 }
 //商品取り出し
@@ -151,26 +169,27 @@ function outputItem() {
 	goBottom();
 }
 
-//----- お金返却処理 -----//
+//--------------- お金返却処理 ---------------//
 //レバーを引く
 function hasPulled() {
 	document.text.backlog.value += "返却レバーを引きました。\n";
 	goBottom();
 	
 	change += pay;
-	pay = 0000;
+	pay = 0;
+	num.innerText = "0000";
 	num.style.color = "#1c1c1c";
 	en.style.color = "#1c1c1c";
 	
 	//紙幣のおつり
 	paper += Math.floor(change / 1000) * 1000;
-	getPaper = new Boolean(true);
+	getPaper = true;
 	
 	//硬貨のおつり
 	var b = 0;
 	b =+ (change + '').slice(-3);
 	coin += (b - 0);
-	getCoin = new Boolean(true);
+	getCoin = true;
 	
 	change = 0;
 }
@@ -183,7 +202,7 @@ function returnPaper() {
 			document.text.backlog.value += paper + "円が返却されました。";
 			paper = 0;
 		}
-		getPaper = new Boolean(false);
+		getPaper =false;
 	} else {
 		document.text.backlog.value += "おつりはありません。";
 	}
@@ -199,7 +218,7 @@ function returnCoin() {
 			document.text.backlog.value += coin + "円が返却されました。";
 			coin = 0;
 		}
-		getCoin = new Boolean(false);
+		getCoin = false;
 	} else {
 		document.text.backlog.value += "おつりはありません。";
 	}
@@ -207,7 +226,7 @@ function returnCoin() {
 	goBottom();
 }
 
-//----- バックログ -----//
+//--------------- バックログ ---------------//
 function goBottom(){
     var obj = document.getElementById("backlog");
     if(!obj) return;
