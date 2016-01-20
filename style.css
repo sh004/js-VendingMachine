@@ -4,7 +4,7 @@ body {
 	height: 750px;
 	width: 935px;
 	margin: 10px auto;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 /* 骨組み */
@@ -261,6 +261,7 @@ body {
 #frameE #wallet {
 	height: 180px;
 	width: 400px;
+	position: relative;
 	margin-bottom: 40px;
 	padding-top: 20px;
 	border: solid 1px #efbb24;
@@ -272,7 +273,7 @@ body {
 	cursor: move;
 }
 #frameE #sen {
-	right: 15%;
+	right: 25%;
 	height: 90px;
 }
 #frameE #gohyaku,
@@ -282,17 +283,17 @@ body {
 	top: 59%;
 	height: 70px;
 }
-#frameE #gohyaku {
-	right: 36%;
-}
-#frameE #hyaku {
-	right: 26%;
+#frameE #ju {
+	right: 75%;
 }
 #frameE #goju {
-	right: 17%;
+	right: 54%;
 }
-#frameE #ju {
-	right: 8%;
+#frameE #hyaku {
+	right: 33%;
+}
+#frameE #gohyaku {
+	right: 10%;
 }
 
 /* テキスト */
