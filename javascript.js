@@ -1,5 +1,4 @@
 /*　メモ
-	・お金の投入ができない
 	・ボタンが光らない
 */
 
@@ -23,71 +22,37 @@ var getCoin = new Boolean(false);		//判定：硬貨返却用
 
 
 //----- お金投入,挿入処理 -----//
-function handleDragStart(e) {
-	this.style.opacity = '0.4';
-}
-function handleDragOver(e) {
-	if (e.preventDefault) {
-		e.preventDefault();
-	}
-	e.dataTransfer.dropEffect = 'move';
-	return false;
-}
-function handleDragEnter(e) {
-	this.classList.add('over');
-}
-function handleDragLeave(e) {
-	this.classList.remove('over');
-}
-function handleDrop(e) {
-	if (e.stopPropagation) {
-		e.stopPropagation();
-	}
-	return false;
-}
-function handleDragEnd(e) {
-	this.style.opacity = '1';
-	[].forEach.call(cols, function (col) {
-		col.classList.remove('over');
+$(function(){
+	$(".money").draggable({
+		revert: true
 	});
-}
-var cols = document.querySelectorAll('#wallet .money');
-[].forEach.call(cols, function(col) {
-	col.addEventListener('dragstart', handleDragStart, false);
-	col.addEventListener('dragenter', handleDragEnter, false)
-	col.addEventListener('dragover', handleDragOver, false);
-	col.addEventListener('dragleave', handleDragLeave, false);
-	col.addEventListener('drop', handleDrop, false);
-	col.addEventListener('dragend', handleDragEnd, false);
+	$("#frameC-2").droppable({
+		accept : ".money",
+		drop : function(event , ui){
+					var dragId = ui.draggable.attr("id");
+
+					
+					if ($(this).find(".drop" + dragId).length == 0) {
+						switch (dragId){
+							case 'sen':		pay += 1000;
+											break;
+							case 'ju':		pay += 10;
+											break;
+							case 'goju':	pay += 50;
+											break;
+							case 'hyaku':	pay += 100;
+											break;
+							case 'gohyaku':	pay += 500;
+											break;
+						}
+						
+						num.innerText = pay;
+						num.style.color = "#ab3b3a";
+						en.style.color = "#ab3b3a";
+					}
+				}
+	});
 });
-/* a = pay + 入れたお金;
-if (a > 4200) {
-	document.text.backlog.value += "上限に達しました。\n";
-	goBottom();
-	change += 入れたお金;	//そのままおつりになる
-} else {
-	pay += 入れたお金;
-	num.innerText = pay;
-} */
-
-/*--------------- ここから仮 ---------------*/
-//金額表示
-pay = 1200;
-if (pay > 0) {
-	num.innerText = pay;
-	num.style.color = "#ab3b3a";
-	en.style.color = "#ab3b3a";
-}
-//ボタン発光
-if (pay >= 110 && pay < 130) {
-
-} else if (pay >= 130 && pay < 160) {
-
-} else if (pay >= 160 && pay <= 4200) {
-
-} else {
-}
-/*--------------- ここまで仮 ---------------*/
 
 //----- 商品購入処理 -----//
 //商品ボタン押下
@@ -173,8 +138,10 @@ function outputItem() {
 		}
 		if (purchaseNum == 1) {
 			document.text.backlog.value += all + "を購入しました。";
-		} else {
+		} else if (purchaseNum > 1) {
 			document.text.backlog.value += all + "\n以上の" + purchaseNum + "本を購入しました。";
+		} else {
+			document.text.backlog.value += "商品を購入してください。";
 		}
 		goBottom();
 		itemName = [];
@@ -187,6 +154,9 @@ function outputItem() {
 //----- お金返却処理 -----//
 //レバーを引く
 function hasPulled() {
+	document.text.backlog.value += "返却レバーを引きました。\n";
+	goBottom();
+	
 	change += pay;
 	pay = 0000;
 	num.style.color = "#1c1c1c";
@@ -202,8 +172,7 @@ function hasPulled() {
 	coin += (b - 0);
 	getCoin = new Boolean(true);
 	
-	document.text.backlog.value += "返却レバーを引きました。\n";
-	goBottom();
+	change = 0;
 }
 //紙幣返却
 function returnPaper() {
